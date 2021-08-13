@@ -60,7 +60,8 @@ end if
                     alert(response);
                     location.href = "Default.asp";
                 },
-                error: function (response) {                    
+                error: function (response) {
+                    debugger
                 }
             });
         }
@@ -83,15 +84,25 @@ end if
         }
 
         function ValidateForm() {
+            var mobile = $("#txtMobile").val();
+            var age = $("#txtAge").val();
             if ($("#txtFirstName").val() == "") {
                 alert("Enter First Name.");
                 return false;
             }
-            if (isNaN($("#txtAge").val())) {
+            if (isNaN(age)) {
                 alert("Age must be numeric.");
                 return false;
             }
-            if (isNan($("#txtMobile").val())) {
+            if (isNaN(mobile)) {
+                alert("Mobile Number must be numeric.");
+                return false;
+            }
+            if (age.length > 3) {
+                alert("Please enter valid age.");
+                return false;
+            }
+            if (mobile.length <= 5 || mobile.length >=11) {
                 alert("Mobile Number must be numeric.");
                 return false;
             }

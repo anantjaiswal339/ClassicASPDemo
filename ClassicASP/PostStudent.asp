@@ -27,19 +27,13 @@
     ''cmd.Parameters.Append cmd.CreateParameter("@LastName",adVarchar,adParamInput,20,lastName)
     'cmd.Parameters.Append cmd.CreateParameter("@Age",adTinyInt,adParamInput,4,age)
     'cmd.Parameters.Append cmd.CreateParameter("@Mobile",adVarchar,adParamInput,15,mobile)
-
-    'cmd.Parameters("@FirstName") = firstName
-    'cmd.Parameters("@LastName") = lastName 
-    'cmd.Parameters("@Age") = age
-    'cmd.Parameters("@Mobile") = mobile
-
+    
     'Execute the stored procedure
-    'This returns recordset but you dont need it
     'cmd.Execute
 
     'conn.Close
     
-    if(studentId > 0) then
+    if studentId <> "" then
         sSQL= "Update Student SET LastName='" & lastName & "' ,FirstName='" & firstName & "', Mobile='" & mobile & "',Age=" & age & " where StudentId=" & studentId
         Response.Write("Student Update Successfully")
     else
